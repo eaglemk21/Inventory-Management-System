@@ -1,343 +1,368 @@
-﻿# Inventory-Management-System
- 📦 Inventory Management System
+# Inventory Management System 📦
 
 A complete Core Java-based Inventory Management System that demonstrates object-oriented programming principles, file handling, multithreading, and exception handling.
-🚀 Features
 
-    Product Management - Add, view, search, update, and delete products
 
-    Inventory Tracking - Real-time low stock alerts with multithreading
 
-    Supplier Management - Manage supplier information
+## 🚀 Features
 
-    CSV Data Storage - Persistent data storage using CSV files
+- **📊 Product Management** - Add, view, search, update, and delete products
+- **🔔 Real-time Alerts** - Background thread monitoring with low stock notifications
+- **👥 Supplier Management** - Complete supplier information tracking
+- **💾 CSV Data Storage** - Persistent data storage using CSV files
+- **📈 Reports & Analytics** - Generate inventory reports and statistics
+- **🛡️ Robust Error Handling** - Comprehensive exception handling with custom exceptions
+- **🎯 Input Validation** - Data integrity checks and validation
 
-    Reports & Analytics - Generate inventory reports and statistics
+## 🛠️ Technologies Used
 
-    Exception Handling - Comprehensive error handling with custom exceptions
+- **Core Java 17+** - Pure Java implementation, no external dependencies
+- **File I/O** - CSV file operations using BufferedReader/Writer
+- **Multithreading** - Background alert system with daemon threads
+- **Collections Framework** - ArrayList, HashMap, Stream API
+- **OOP Principles** - Encapsulation, Inheritance, Polymorphism, Abstraction
 
-🛠️ Technologies Used
+## 📁 Project Structure
 
-    Core Java - No frameworks or external libraries
-
-    File I/O - CSV file operations using BufferedReader/Writer
-
-    Multithreading - Background alert system
-
-    Collections Framework - ArrayList, HashMap, Streams
-
-    OOP Principles - Encapsulation, Inheritance, Polymorphism
-
-📁 Project Structure
-text
-
+```
 InventoryManagementSystem/
-├── src/
-│   ├── model/
+├── 📂 src/
+│   ├── 📂 model/
 │   │   ├── Product.java
 │   │   └── Supplier.java
-│   ├── service/
+│   ├── 📂 service/
 │   │   ├── ProductService.java
 │   │   ├── SupplierService.java
 │   │   └── InventoryAlertThread.java
-│   ├── util/
+│   ├── 📂 util/
 │   │   └── FileUtil.java
-│   ├── exception/
+│   ├── 📂 exception/
 │   │   ├── InventoryException.java
 │   │   ├── FileFormatException.java
 │   │   ├── InvalidProductException.java
 │   │   └── ProductNotFoundException.java
-│   └── main/
+│   └── 📂 main/
 │       └── InventoryManagementSystem.java
-├── data/
+├── 📂 data/
 │   ├── products.csv
 │   └── suppliers.csv
-├── compile.bat
-└── README.md
+├── 📂 bin/ (auto-generated)
+├── 🛠️ compile.bat
+├── 🚀 run.bat
+└── 📖 README.md
+```
 
-🏃‍♂️ Quick Start
-Prerequisites
+## 🏃‍♂️ Quick Start
 
-    Java JDK 8 or higher
+### Prerequisites
+- **Java JDK 17 or higher**
+- Windows/Linux/macOS terminal
 
-    Windows/Linux/macOS terminal
+### 🎯 Quick Commands to Remember
 
-Compilation & Execution
+#### **Compile the System:**
+```powershell
+javac -d bin src\main\InventoryManagementSystem.java src\service\*.java src\model\*.java src\exception\*.java src\util\*.java
+```
 
-Using PowerShell (Recommended):
-powershell
-
-# Navigate to project directory
-cd InventoryManagementSystem
-
-# Compile the project
-.\compile.ps1
-
-# Run the application
+#### **Run the System:**
+```powershell
 java -cp bin main.InventoryManagementSystem
+```
 
-Manual Compilation:
-powershell
+#### **One-Liner Compile & Run:**
+```powershell
+javac -d bin src\main\*.java src\service\*.java src\model\*.java src\exception\*.java src\util\*.java && java -cp bin main.InventoryManagementSystem
+```
 
-# Clean and compile
-Remove-Item -Path "bin\*" -Recurse -Force
+### Using Batch Files (Windows):
+
+#### **Compile:**
+```powershell
+.\compile.bat
+```
+
+#### **Run:**
+```powershell
+.\run.bat
+```
+
+### Manual Step-by-Step Compilation:
+```powershell
+# Clean previous build
+Remove-Item -Path "bin\*" -Recurse -Force 2>$null
+
+# Compile in dependency order
 javac -d bin src/exception/*.java
 javac -d bin src/model/*.java
 javac -d bin -cp bin src/util/*.java
-javac -d bin -cp bin src/service/ProductService.java
 javac -d bin -cp bin src/service/*.java
-javac -d bin -cp bin src/main/*.java
+javac -d bin -cp bin src/main/InventoryManagementSystem.java
 
 # Run application
 java -cp bin main.InventoryManagementSystem
+```
 
-📋 Usage Guide
-Main Menu Options:
+## 📋 Usage Guide
 
-    Add Product - Add new products to inventory
+### Main Menu Options:
+| Option | Command | Description |
+|--------|---------|-------------|
+| 1️⃣ | **Add Product** | Add new products to inventory |
+| 2️⃣ | **View All Products** | Display complete product list |
+| 3️⃣ | **Search Product** | Find by ID, name, or category |
+| 4️⃣ | **Update Product** | Modify existing product details |
+| 5️⃣ | **Delete Product** | Remove products from system |
+| 6️⃣ | **View Low Stock** | Products with quantity < threshold |
+| 7️⃣ | **Generate Reports** | Inventory analytics & statistics |
+| 8️⃣ | **Supplier Management** | View and manage suppliers |
+| 9️⃣ | **Exit System** | Safe shutdown |
 
-    View All Products - Display all products
-
-    Search Product - Search by ID, name, or category
-
-    Update Product - Modify existing product details
-
-    Delete Product - Remove products from inventory
-
-    View Low Stock Products - Products with quantity < 10
-
-    Generate Reports - Inventory value and category statistics
-
-    Supplier Management - View and add suppliers
-
-    Exit - Safely shutdown the system
-
-Adding a Product:
-text
-
+### Adding a Product Example:
+```
 Enter Product ID: P007
 Enter Product Name: Gaming Mouse
 Enter Category: Electronics
 Enter Quantity: 25
 Enter Price: 49.99
 Enter Supplier ID: S001
+```
 
-Sample Data:
+## 📊 Sample Data
 
-The system comes with pre-loaded sample data:
+The system includes pre-loaded sample data:
 
-    6 Products: Laptop, Office Chair, Notebook, Wireless Mouse, Desk Lamp, Stapler
+### Products:
+- **6 Products**: Laptop, Office Chair, Notebook, Wireless Mouse, Desk Lamp, Stapler
+- **Multiple Categories**: Electronics, Furniture, Stationery
+- **Realistic Pricing**: Market-appropriate prices
 
-    3 Suppliers: TechCorp Inc., OfficeFurnish Ltd., StationeryWorld
+### Suppliers:
+- **3 Suppliers**: TechCorp Inc., OfficeFurnish Ltd., StationeryWorld
+- **Complete Contact Info**: Names, emails, phone numbers
 
-💾 Data Storage
-Products CSV Format:
-text
+## 💾 Data Storage
 
+### Products CSV Format:
+```csv
 P001,Laptop,Electronics,15,899.99,S001
 P002,Office Chair,Furniture,8,199.99,S002
+P003,Notebook,Stationery,50,4.99,S003
+```
 
-Suppliers CSV Format:
-text
-
+### Suppliers CSV Format:
+```csv
 S001,TechCorp Inc.,John Doe,john@techcorp.com,555-0101
 S002,OfficeFurnish Ltd.,Jane Smith,jane@officefurnish.com,555-0102
+S003,StationeryWorld,Bob Johnson,bob@stationeryworld.com,555-0103
+```
 
-🎯 Core Java Concepts Demonstrated
-✅ Object-Oriented Programming
+## 🎯 Core Java Concepts Demonstrated
 
-    Classes and Objects
+### ✅ Object-Oriented Programming
+- **Classes & Objects** - Proper entity modeling
+- **Encapsulation** - Private fields with public getters/setters
+- **Inheritance** - Custom exception hierarchy
+- **Polymorphism** - Method overriding in toString()
 
-    Encapsulation with private fields and public getters/setters
+### ✅ Exception Handling
+- **Custom Exception Classes** - Domain-specific error types
+- **Checked vs Unchecked** - Proper exception strategy
+- **Try-Catch-Finally** - Resource management
+- **Meaningful Messages** - User-friendly error information
 
-    Inheritance with custom exception hierarchy
+### ✅ File I/O Operations
+- **BufferedReader/Writer** - Efficient file handling
+- **CSV Parsing** - String.split() for data extraction
+- **File Validation** - Existence checks and auto-creation
+- **Data Persistence** - Automatic save on operations
 
-    Polymorphism with method overriding
+### ✅ Collections Framework
+- **ArrayList** - Dynamic product/supplier storage
+- **HashMap** - Category-wise grouping and counting
+- **Stream API** - Functional operations on collections
+- **Lambda Expressions** - Clean, concise code
 
-✅ Exception Handling
+### ✅ Multithreading
+- **Thread Extension** - Custom InventoryAlertThread
+- **Background Monitoring** - Non-blocking user experience
+- **Synchronization** - Thread-safe console output
+- **Daemon Threads** - Automatic JVM shutdown
 
-    Custom exception classes
+### ✅ Data Validation
+- **Input Validation** - All user inputs are validated
+- **Business Rules** - No negative quantities/prices
+- **Duplicate Prevention** - Unique ID enforcement
+- **Data Integrity** - Consistent state maintenance
 
-    Checked vs unchecked exceptions
+## 🔧 Technical Implementation
 
-    Proper try-catch-finally blocks
-
-    Meaningful error messages
-
-✅ File I/O Operations
-
-    BufferedReader/Writer for CSV files
-
-    File creation and validation
-
-    CSV parsing using String.split()
-
-    Persistent data storage
-
-✅ Collections Framework
-
-    ArrayList for dynamic data storage
-
-    HashMap for data grouping
-
-    Stream API for filtering and processing
-
-    Lambda expressions and method references
-
-✅ Multithreading
-
-    Thread class extension
-
-    Background task execution
-
-    Thread synchronization
-
-    Daemon threads for automatic shutdown
-
-✅ Data Validation
-
-    Input validation for all user inputs
-
-    Business rule enforcement
-
-    Duplicate prevention
-
-    Data integrity checks
-
-🔧 Technical Details
-Multithreading Implementation:
-java
-
+### Multithreading Architecture:
+```java
 public class InventoryAlertThread extends Thread {
-    // Checks low stock every 30 seconds
-    // Uses synchronized blocks for thread-safe output
-    // Implements proper thread termination
+    // Monitors inventory every 30 seconds
+    // Uses synchronized blocks for thread safety
+    // Implements graceful thread termination
+    // Runs as daemon for automatic cleanup
 }
+```
 
-Exception Hierarchy:
-text
+### Exception Hierarchy:
+```
+InventoryException (Base Checked Exception)
+├── InvalidProductException (Validation errors)
+├── FileFormatException (CSV parsing errors)
+└── ProductNotFoundException (Search failures)
+```
 
-InventoryException (Base)
-├── InvalidProductException
-├── FileFormatException
-└── ProductNotFoundException
+### Service Layer Pattern:
+- **ProductService** - Core product operations and business logic
+- **SupplierService** - Supplier management operations
+- **FileUtil** - Reusable file operation utilities
 
-Service Layer Pattern:
+## 🚀 Advanced Features
 
-    ProductService - Handles all product operations
+### Real-time Alert System
+- ✅ Background monitoring every 30 seconds
+- ✅ Automatic low stock notifications
+- ✅ Non-intrusive user experience
+- ✅ Configurable threshold levels
 
-    SupplierService - Manages supplier data
+### Comprehensive Search Capabilities
+- ✅ **Exact Match** - Product ID search
+- ✅ **Partial Match** - Product name search (case-insensitive)
+- ✅ **Category Filter** - Category-based filtering
+- ✅ **Multiple Results** - Support for bulk operations
 
-    FileUtil - Utility class for file operations
+### Robust Data Persistence
+- ✅ **Auto-save** - Every operation persists immediately
+- ✅ **CSV Format** - Human-readable and editable
+- ✅ **Error Recovery** - Graceful handling of file issues
+- ✅ **Data Backup** - Manual backup via file copying
 
-🚀 Features in Detail
-Real-time Alerts
+## 📊 Sample Reports Output
 
-    Background thread monitors inventory every 30 seconds
-
-    Automatic low stock notifications
-
-    Non-blocking user experience
-
-Comprehensive Search
-
-    Search by product ID (exact match)
-
-    Search by product name (partial match, case-insensitive)
-
-    Search by category (exact match)
-
-Data Persistence
-
-    Automatic save on every operation
-
-    CSV format for easy data inspection
-
-    File creation if not exists
-
-Error Resilience
-
-    Graceful handling of file errors
-
-    Input validation with helpful messages
-
-    Data corruption prevention
-
-📊 Sample Reports
-
-Inventory Value Report:
-text
-
+### Inventory Value Report:
+```
+?? REPORTS & STATISTICS
 Total Inventory Value: $15,274.75
+
 Category-wise Product Count:
    Electronics: 2 product(s)
    Furniture: 2 product(s)
    Stationery: 2 product(s)
+
 Total Products: 6
+```
 
-🐛 Troubleshooting
-Common Issues:
+### Low Stock Alert:
+```
+?? LOW STOCK ALERT! The following products are running low:
+   Office Chair (ID: P002) - Only 8 left!
+   Stapler (ID: P006) - Only 5 left!
+Please restock these items soon!
+```
 
-    "Product not found" - Check if product exists using Option 2
+## 🐛 Troubleshooting Guide
 
-    "Invalid number format" - Enter valid numbers for quantity/price
+### Common Issues & Solutions:
 
-    "Product ID already exists" - Use unique product IDs
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| **"Product not found"** | Invalid product ID | Use Option 2 to view all products |
+| **"Invalid number format"** | Non-numeric input | Enter valid numbers for quantity/price |
+| **"Product ID exists"** | Duplicate ID | Use unique product identifiers |
+| **Compilation errors** | Missing JDK | Ensure Java 17+ is installed and in PATH |
+| **File permission errors** | Write restrictions | Run as admin or check folder permissions |
 
-    Compilation errors - Ensure Java JDK is properly installed
+### File System Checks:
+```powershell
+# Verify Java installation
+java -version
+javac -version
 
-File Permissions:
+# Check project structure
+dir src/
+dir data/
 
-    Ensure write permissions in the project directory
+# Verify compilation output
+dir bin/
+```
 
-    CSV files are created automatically if missing
+## 📈 Future Enhancements
 
-📈 Future Enhancements
+### Planned Features:
+- 🗃️ **Database Integration** - MySQL/PostgreSQL support
+- 🌐 **Web Interface** - Spring Boot REST API
+- 🔐 **User Authentication** - Role-based access control
+- 📊 **Advanced Analytics** - Charts and forecasting
+- 📱 **Mobile App** - React Native companion app
+- 🏷️ **Barcode Support** - Product scanning capabilities
+- 📦 **Purchase Orders** - Complete supply chain management
 
-    Database integration (MySQL/PostgreSQL)
+### Technical Improvements:
+- **Logging Framework** - SLF4J with Logback
+- **Configuration Management** - External config files
+- **Unit Testing** - JUnit test coverage
+- **Build Automation** - Maven/Gradle support
+- **Docker Support** - Containerized deployment
 
-    Web interface using Spring Boot
+## 👥 Contributing
 
-    REST API development
+This project is designed as a comprehensive learning exercise for Core Java concepts. Contributions are welcome!
 
-    User authentication and authorization
+### Areas for Extension:
+- Add product categories management
+- Implement inventory forecasting algorithms
+- Create bulk import/export functionality
+- Add advanced search filters
+- Implement data backup/restore features
 
-    Advanced reporting with charts
+### Development Setup:
+1. Fork the repository
+2. Create a feature branch
+3. Implement your changes
+4. Add tests if possible
+5. Submit a pull request
 
-    Barcode scanning integration
+## 📄 License
 
-    Purchase order management
+This project is open source and available under the **MIT License**.
 
-👥 Contributing
+## 🎓 Learning Outcomes
 
-This project is designed as a learning exercise for Core Java concepts. Feel free to extend it with additional features:
+After exploring this project, you'll gain practical experience with:
 
-    Add product categories management
+### Core Java Mastery:
+- Building complete Java applications from scratch
+- Advanced file handling and serialization
+- Multithreading and concurrency control
+- Comprehensive exception handling strategies
 
-    Implement inventory forecasting
+### Software Engineering:
+- Object-oriented design principles
+- Service layer architecture
+- Data persistence strategies
+- User interface design (CLI)
 
-    Add bulk operations
+### Professional Development:
+- Code organization and structure
+- Documentation practices
+- Debugging and troubleshooting
+- Project maintenance
 
-    Create export functionality (PDF/Excel)
+---
 
-📄 License
+**Built with 💻 using Pure Core Java | Zero External Dependencies**
 
-This project is open source and available under the MIT License.
-🎓 Learning Outcomes
+---
 
-After completing this project, you'll have practical experience with:
+### 🚀 Ready to Get Started?
 
-    Building complete Java applications from scratch
+1. **Clone or download** the project
+2. **Navigate** to the InventoryManagementSystem directory
+3. **Compile** using the commands above
+4. **Run** and explore the features
+5. **Extend** with your own improvements!
 
-    File handling and data persistence
-
-    Multithreading and synchronization
-
-    Exception handling strategies
-
-    Collections framework and Stream API
-
-    Object-oriented design principles
-
-Built with 💻 using Core Java | No frameworks or external dependencies
-
+The system is production-ready and perfect for learning enterprise Java development patterns! 🎯
